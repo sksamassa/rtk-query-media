@@ -1,44 +1,43 @@
-import React, { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, addUser } from "../store";
 import Skeleton from "./Skeleton";
 import Button from "./Button";
 
-export default function UsersList() {
-  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
-  const [loadingUsersError, setLoadingUsersError] = useState(null);
-  const [isCreatingUser, setIsCreatingUser] = useState(false);
-  const [creatingUserError, setCreatingUserError] = useState(null);
+function useThunk(thunk) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
+
+  const runThunk = useCallback(
+    (arg) => {
+      setIsLoading(true);
+      dispatch(thunk(arg))
+        .unwrap()
+        .catch((err) => setError(err))
+        .finally(() => setIsLoading(false));
+    },
+    [dispatch, thunk]
+  );
+
+  return [runThunk, isLoading, error];
+}
+
+export default function UsersList() {
+  const [doFetchUsers, isLoadingUsers, loadingUsersError] = useThunk(
+    fetchUsers
+  );
+  const [doCreateUser, isCreatingUser, creatingUserError] = useThunk(addUser);
   const { data } = useSelector((state) => {
     return state.users; // { data: [], isLoading, error }
   });
 
   useEffect(() => {
-    setIsLoadingUsers(true);
-    dispatch(fetchUsers())
-      .unwrap()
-      .then(() => {
-        setIsLoadingUsers(false);
-      })
-      .catch((err) => {
-        setLoadingUsersError(err);
-      })
-      .finally(() => {
-        setIsLoadingUsers(false);
-      });
+    doFetchUsers();
   }, []);
 
   const handleUserAdd = () => {
-    setIsCreatingUser(true);
-    dispatch(addUser())
-      .unwrap()
-      .catch((err) => {
-        setCreatingUserError(true);
-      })
-      .finally(() => {
-        setIsCreatingUser(false);
-      });
+    doCreateUser();
   };
 
   if (isLoadingUsers) {
@@ -68,13 +67,13 @@ export default function UsersList() {
       <div className="flex justify-between m-3">
         <h1 className="text-xl m-2">Users</h1>
         {isCreatingUser ? (
-          "Creating User..."
+          <div>Creating User...</div>
         ) : (
           <Button primary rounded onClick={handleUserAdd}>
             + Add User
           </Button>
         )}
-        {creatingUserError && "Error creating user!"}
+        {creatingUserError && <div>Error creating user!</div>}
       </div>
       {renderedUsers}
     </div>
