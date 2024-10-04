@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start:server": "json-server --watch db.json --port 3005",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -11,9 +12,13 @@
   },
   "dependencies": {
     "@faker-js/faker": "^9.0.3",
+    "axios": "^1.7.7",
     "bulma": "^1.0.2",
+    "classnames": "^2.5.1",
+    "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-icons": "4.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
