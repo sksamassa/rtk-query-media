@@ -7,6 +7,8 @@ import Button from "./Button";
 export default function UsersList() {
   const [isLoadingUsers, setIsLoadingUsers] = useState(false);
   const [loadingUsersError, setLoadingUsersError] = useState(null);
+  const [isCreatingUser, setIsCreatingUser] = useState(false);
+  const [creatingUserError, setCreatingUserError] = useState(null);
   const dispatch = useDispatch();
   const { data } = useSelector((state) => {
     return state.users; // { data: [], isLoading, error }
@@ -28,7 +30,15 @@ export default function UsersList() {
   }, []);
 
   const handleUserAdd = () => {
-    dispatch(addUser());
+    setIsCreatingUser(true);
+    dispatch(addUser())
+      .unwrap()
+      .catch((err) => {
+        setCreatingUserError(true);
+      })
+      .finally(() => {
+        setIsCreatingUser(false);
+      });
   };
 
   if (isLoadingUsers) {
@@ -57,9 +67,14 @@ export default function UsersList() {
     <div>
       <div className="flex justify-between m-3">
         <h1 className="text-xl m-2">Users</h1>
-        <Button primary rounded onClick={handleUserAdd}>
-          + Add User
-        </Button>
+        {isCreatingUser ? (
+          "Creating User..."
+        ) : (
+          <Button primary rounded onClick={handleUserAdd}>
+            + Add User
+          </Button>
+        )}
+        {creatingUserError && "Error creating user!"}
       </div>
       {renderedUsers}
     </div>
