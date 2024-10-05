@@ -41,6 +41,10 @@
       "name": "Tonya Lebsack DVM"
     }
   ],
-  "albums": [],
+  "albums": [{
+    "id": 1,
+    "title": "Hiking Trip",
+    "userId": 1
+  }],
   "photos": []
 }

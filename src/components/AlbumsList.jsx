@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import { useFetchAlbumsQuery } from "../store";
 
 export default function AlbumsList({ user }) {
-  return (
-    <div>
-      Albums for {user.name}
-    </div>
-  )
+  const { data, error, isLoading } = useFetchAlbumsQuery(user);
+
+  
+
+  return <div>Albums for {user.name}</div>;
 }
