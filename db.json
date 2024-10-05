@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Myra"
     },
     {
@@ -41,10 +41,22 @@
       "name": "Tonya Lebsack DVM"
     }
   ],
-  "albums": [{
-    "id": 1,
-    "title": "Hiking Trip",
-    "userId": 1
-  }],
+  "albums": [
+    {
+      "id": "1",
+      "title": "Hiking Trip",
+      "userId": 1
+    },
+    {
+      "id": "ff2a",
+      "userId": "1",
+      "title": "Refined Plastic Bike"
+    },
+    {
+      "id": "fc6d",
+      "userId": "1",
+      "title": "Unbranded Plastic Cheese"
+    }
+  ],
   "photos": []
 }
