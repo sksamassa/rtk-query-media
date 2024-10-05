@@ -8,14 +8,14 @@ export default function AlbumsList({ user }) {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
   const [addAlbum, results] = useAddAlbumMutation();
 
-const handleAddAlbum = () => {
-  addAlbum(user);
-}
+  const handleAddAlbum = () => {
+    addAlbum(user);
+  };
 
   let content;
 
   if (isLoading) {
-    content = <Skeleton times={3} />;
+    content = <Skeleton className="h-8 w-full" times={3} />;
   } else if (error) {
     content = <div>Error fetching albums.</div>;
   } else {
@@ -32,9 +32,11 @@ const handleAddAlbum = () => {
 
   return (
     <div>
-      <div>
-      Albums for {user.name}
-      <Button primay rounded onClick={handleAddAlbum}>+ Add Album</Button>
+      <div className="flex justify-between mb-2">
+        <h3 className="text-lg font-bold">Albums for {user.name}</h3>
+        <Button loading={results.isLoading} primary rounded onClick={handleAddAlbum}>
+          + Add Album
+        </Button>
       </div>
       <div>{content}</div>
     </div>
