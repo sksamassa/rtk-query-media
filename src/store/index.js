@@ -11,10 +11,9 @@ export const store = configureStore({
     [photosApi.reducerPath]: photosApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(
-      albumsApi.middleware,
-      photosApi.middleware
-    );
+    return getDefaultMiddleware()
+          .concat(albumsApi.middleware)
+          .concat(photosApi.middleware);
   },
 });
 
@@ -23,13 +22,15 @@ setupListeners(store.dispatch);
 export * from "./thunks/fetchUsers";
 export * from "./thunks/addUser";
 export * from "./thunks/removeUser";
+
 export {
   useFetchAlbumsQuery,
   useAddAlbumMutation,
   useRemoveAlbumMutation,
 } from "./api/albumsApi";
+
 export {
   useFetchPhotosQuery,
   useAddPhotoMutation,
-  useDeletePhotoMutation,
+  useRemovePhotoMutation,
 } from "./api/photosApi";

@@ -21,5 +21,36 @@
       "title": "Handmade Cotton Shirt"
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "id": "ff02",
+      "albumId": "4d1e",
+      "url": "https://loremflickr.com/150/150?lock=5549507329339326"
+    },
+    {
+      "id": "dfee",
+      "albumId": "4d1e",
+      "url": "https://loremflickr.com/150/150?lock=3579094209215486"
+    },
+    {
+      "id": "aba4",
+      "albumId": "475b",
+      "url": "https://picsum.photos/seed/W2hdQPRMUU/150/150"
+    },
+    {
+      "id": "fc30",
+      "albumId": "4d1e",
+      "url": "https://loremflickr.com/150/150?lock=889035034620372"
+    },
+    {
+      "id": "a4bf",
+      "albumId": "4d1e",
+      "url": "https://loremflickr.com/150/150?lock=2760178053845584"
+    },
+    {
+      "id": "2e73",
+      "albumId": "4d1e",
+      "url": "https://loremflickr.com/150/150?lock=1218101564767557"
+    }
+  ]
 }
