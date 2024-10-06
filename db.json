@@ -5,82 +5,20 @@
       "name": "Myra"
     },
     {
-      "id": "a742",
-      "name": "Sara Kuhic"
-    },
-    {
-      "id": "da58",
-      "name": "Spencer Crooks"
-    },
-    {
       "id": "0707",
       "name": "Danny Nolan"
-    },
-    {
-      "id": "214b",
-      "name": "Mr. Alejandro Langosh IV"
-    },
-    {
-      "id": "7577",
-      "name": "Jackie Turner-Dickinson"
-    },
-    {
-      "id": "7b26",
-      "name": "Morris Bechtelar DDS"
-    },
-    {
-      "id": "96c6",
-      "name": "Dr. Calvin Crooks"
-    },
-    {
-      "id": "67de",
-      "name": "Mrs. Juanita Ullrich"
-    },
-    {
-      "id": "05ea",
-      "name": "Tonya Lebsack DVM"
     }
   ],
   "albums": [
     {
-      "id": "1",
-      "title": "Hiking Trip",
-      "userId": 1
+      "id": "4d1e",
+      "userId": null,
+      "title": "Unbranded Granite Soap"
     },
     {
-      "id": "ff2a",
-      "userId": "1",
-      "title": "Refined Plastic Bike"
-    },
-    {
-      "id": "fc6d",
-      "userId": "1",
-      "title": "Unbranded Plastic Cheese"
-    },
-    {
-      "id": "3389",
-      "userId": "1",
-      "title": "Gorgeous Steel Table"
-    },
-    {
-      "id": "da70",
-      "userId": "1",
-      "title": "Unbranded Cotton Towels"
-    },
-    {
-      "id": "a112",
-      "userId": "1",
-      "title": "Generic Metal Mouse"
-    },
-    {
-      "id": "1204",
-      "userId": "1",
-      "title": "Awesome Metal Shoes"
-    },
-    {
-      "id": "d392",
-      "userId": "1",
-      "title": "Practical Granite Mouse"
+      "id": "475b",
+      "userId": null,
+      "title": "Handmade Cotton Shirt"
     }
   ],
   "photos": []
